@@ -140,6 +140,9 @@ TEMPLATE_DIRS = (
     #/Users/hernan/Desarrollo/Python/wks/wksCreamasMatricula/CreamasMatricula/templates",
 )
 
+#Be careful, if someone know the secret key, the app could be injected by malicious code
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',

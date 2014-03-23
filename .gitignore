@@ -1,0 +1,10 @@
+*.log
+*.pot
+*.pyc
+local_settings.py
+*.json
+*.sql
+*.csv
+venv
+*.env
+*.csv

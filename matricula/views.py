@@ -52,9 +52,9 @@ def loginUsuario(request):
 						request.session['seguridad'] = "digitador"
 					elif "visualizador" in grupoStr:
 						request.session['seguridad'] = "visualizador"
-						return redirect('/creamas/matricula-seguimiento')
+						return redirect('/matricula-seguimiento')
 
-					return redirect('/creamas/matricula-registrar')
+					return redirect('/matricula-registrar')
 				else:
 					print("The password is valid, but the account has been disabled!")
 					loginForm = LoginForm()
@@ -71,7 +71,7 @@ def loginUsuario(request):
 
 @login_required
 def logout_matricula(request):
-	return logout_then_login(request, login_url='/creamas/login')
+	return logout_then_login(request, login_url='/login')
 
 # Cambio de modificar matricula
 @login_required
@@ -277,7 +277,7 @@ def modificacion_matricula(request, idmatricula):
 
 			taller_nuevo.save()
 			taller_antiguo.save()
-			return HttpResponseRedirect("/creamas/matricula-modificar-listar")
+			return HttpResponseRedirect("/matricula-modificar-listar")
 		else:
 			#No puede realizar matricula porque taller esta lleno
 			return render_to_response('matricula-modificar.html', {'matricula':matricula,'form':matriculaForm}, context_instance=RequestContext(request))
@@ -308,7 +308,7 @@ def eliminar_matricula(request, idmatricula):
 		clase.save()
 		alumno.save()
 
-	return HttpResponseRedirect("/creamas/matricula-modificar-listar")
+	return HttpResponseRedirect("/matricula-modificar-listar")
 
 @csrf_exempt
 def back_listar_matricula(request): #ok

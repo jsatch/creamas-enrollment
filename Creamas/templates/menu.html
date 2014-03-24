@@ -1,13 +1,7 @@
-<script>
-	$(function() {
-    	$( "#accordion" ).accordion();
-	});
-</script>
-<div id="accordion">
+
 	{% if seguridad == "digitador" or seguridad == "administrador" %}
-  	<h2>Matr&iacute;cula</h2>
-  	<div>
-		<ul> 
+  	<h3>Matr&iacute;cula</h2>
+		<ul class="nav nav-pills nav-stacked"> 
 			<li>
 				<a href="matricula-registrar" >Registrar</a>
 			</li> 
@@ -15,17 +9,13 @@
 				<a href="matricula-modificar-listar" >Modificar</a>
 			</li> 
 		</ul> 
-  	</div>
   	{% endif %}
   	{% if seguridad == "visualizador" or seguridad == "administrador" %}
-  	<h2>Reportes</h2>
-  	<div>
-  		<ul> 
+  	<h3>Reportes</h2>
+  		<ul class="nav nav-pills nav-stacked"> 
 			<li>
 				<a href="matricula-seguimiento" >Seguimiento</a>
 			</li>
 		</ul> 
-  	</div>
   	{% endif %}
-</div>
 <a href="logout" >Salir</a>

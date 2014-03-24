@@ -38,6 +38,11 @@ class AlumnoForm(forms.ModelForm):
 		exclude = ('colegio','email', 'telefonoEmergencia', 'estado','nivel')
 
 class LoginForm(forms.Form):
-	username = forms.CharField(label='Usuario')
-	password = forms.CharField(label='Password', widget=forms.PasswordInput)
-	colegio = forms.ModelChoiceField(label='Colegio', queryset=Colegio.objects.filter(estado__exact=ACTIVO),empty_label="----Seleccionar----", required=True)
+
+	username = forms.CharField(label='Usuario', widget=forms.TextInput(attrs={'class': 'form-control'}))
+	password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+	colegio = forms.ModelChoiceField(label='Colegio', 
+		queryset=Colegio.objects.filter(estado__exact=ACTIVO),
+		empty_label="----Seleccionar----", 
+		widget=forms.Select(attrs={'class': 'form-control'}),
+		required=True)

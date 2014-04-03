@@ -33,7 +33,7 @@
 							<tr>
 								<td colspan="2" align="right">
 									<button type="button" onclick="javascript: document.forms[0].submit();">Filtrar</button>
-									<button type="button" onclick="javascript: window.location= '/creamas/matricula-registrar'">Cancelar</button>
+									<button type="button" onclick="javascript: window.location= '/matricula-registrar'">Cancelar</button>
 								</td>	
 							</tr>
 						</table>
@@ -58,8 +58,8 @@
 									<td>{{matricula.alumno.grado}}</td>
 									<td>{{matricula.alumno.seccion}}</td>
 									<td>{{matricula.taller.nombre}}</td>
-									<td><a href="/creamas/matricula-modificar/{{matricula.id}}" >Modificar</a>
-										<a href="/creamas/matricula-eliminar/{{matricula.id}}" onclick="">Eliminar</a></td>
+									<td><a href="/matricula-modificar/{{matricula.id}}" >Modificar</a>
+										<a href="/matricula-eliminar/{{matricula.id}}" onclick="">Eliminar</a></td>
 								</tr>
 							{% empty %}
 								<tr>

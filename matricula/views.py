@@ -293,6 +293,7 @@ def eliminar_matricula(request, idmatricula):
 		colegio = request.session['colegio']
 		matricula = Matricula.objects.get(id=idmatricula)
 		alumno = matricula.alumno
+		semestre = Semestre.objects.filter(estado__exact='A')[0]
 		
 		# Se disminuiran los numero de inscritos del taller y de la clase a la que pertenecian
 		taller = matricula.taller

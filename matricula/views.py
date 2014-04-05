@@ -204,7 +204,7 @@ def guardar_matricula(request):
 				return render_to_response('matricula-registrar.html', {'form':matriculaForm, 'error':mensaje, 'seguridad':request.session['seguridad']}, context_instance=RequestContext(request)) 
 
 			alumnoBean = Alumno.objects.get(id=idAlumno)
-			clase = Clase.objects.filter(grado__exact=alumnoBean.grado).filter(colegio__exact=colegio)[0]
+			clase = Clase.objects.filter(grado__exact=alumnoBean.grado).filter(colegio__exact=colegio).filter(semestre__exact=semestre)[0]
 
 			if clase.numeroVacantes <= clase.numeroInscritos:
 				mensaje = "No hay cupos de clase de matematicas disponibles"
@@ -296,7 +296,7 @@ def eliminar_matricula(request, idmatricula):
 		
 		# Se disminuiran los numero de inscritos del taller y de la clase a la que pertenecian
 		taller = matricula.taller
-		clase = Clase.objects.filter(grado__exact=alumno.grado).filter(colegio__exact=colegio)[0]
+		clase = Clase.objects.filter(grado__exact=alumno.grado).filter(colegio__exact=colegio).filter(semestre__exact=semestre)[[0]
 		taller.numeroInscritos = taller.numeroInscritos - 1
 		clase.numeroInscritos = clase.numeroInscritos - 1
 

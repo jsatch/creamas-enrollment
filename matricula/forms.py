@@ -11,7 +11,7 @@ class MatriculaForm(forms.Form):
 	semestre = forms.ModelChoiceField(label='Semestre', queryset=Semestre.objects.filter(estado__exact=ACTIVO),empty_label=None)
 	idAlumno = forms.CharField(widget=forms.HiddenInput)
 	alumno = forms.CharField(label='Alumno', widget=forms.TextInput(attrs={'readonly':'readonly'}))
-	taller = forms.ModelChoiceField(label='Taller', queryset=Taller.objects.filter(estado__exact=ABIERTO).filter(numeroVacantes__gt=F('numeroInscritos')),empty_label="----Seleccionar----")
+	taller = forms.ModelChoiceField(label='Taller', queryset=Taller.objects.filter(estado__exact=ABIERTO).filter(numeroVacantes__gt=F('numeroInscritos')).order_by('nivel'),empty_label="----Seleccionar----")
 
 	tutor = forms.CharField(label='Tutor', required=False)
 	telefono = forms.CharField(label='Teléfono', required=False)

@@ -7,3 +7,5 @@ local_settings.py
 venv
 *.env
 *.csv
+.idea
+.DS_Store
